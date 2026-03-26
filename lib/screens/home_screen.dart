@@ -223,8 +223,11 @@ class _TodayTab extends StatelessWidget {
   final ValueChanged<TodoModel> onEdit;
   final ValueChanged<TodoModel> onDelete;
 
-  const _TodayTab(
-      {required this.onAdd, required this.onEdit, required this.onDelete});
+  const _TodayTab({
+    required this.onAdd,
+    required this.onEdit,
+    required this.onDelete,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -235,7 +238,8 @@ class _TodayTab extends StatelessWidget {
 
         if (provider.isLoading) {
           return const Center(
-              child: CircularProgressIndicator(color: AppTheme.primary));
+            child: CircularProgressIndicator(color: AppTheme.primary),
+          );
         }
 
         if (todos.isEmpty && overdue.isEmpty) {
@@ -309,34 +313,17 @@ class _TodayTab extends StatelessWidget {
     );
   }
 }
-// placeholder end
-              const SizedBox(height: 8),
-              _SectionHeader(
-                title: '완료됨',
-                count: completed.length,
-                color: AppTheme.success,
-              ),
-              ...completed.map((t) => TodoItemWidget(
-                    todo: t,
-                    onToggle: () => provider.toggleTodo(t),
-                    onEdit: () => onEdit(t),
-                    onDelete: () => onDelete(t),
-                  )),
-            ],
-          ],
-        );
-      },
-    );
-  }
-}
 
 class _AllTab extends StatelessWidget {
   final VoidCallback onAdd;
   final ValueChanged<TodoModel> onEdit;
   final ValueChanged<TodoModel> onDelete;
 
-  const _AllTab(
-      {required this.onAdd, required this.onEdit, required this.onDelete});
+  const _AllTab({
+    required this.onAdd,
+    required this.onEdit,
+    required this.onDelete,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -419,20 +406,17 @@ class _CategoryFilter extends StatelessWidget {
             child: AnimatedContainer(
               duration: const Duration(milliseconds: 200),
               margin: const EdgeInsets.only(right: 8),
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
               decoration: BoxDecoration(
                 color: isSelected ? AppTheme.primary : Colors.white,
                 borderRadius: BorderRadius.circular(20),
                 border: Border.all(
-                  color: isSelected
-                      ? AppTheme.primary
-                      : Colors.grey.shade300,
+                  color: isSelected ? AppTheme.primary : Colors.grey.shade300,
                 ),
                 boxShadow: isSelected
                     ? [
                         BoxShadow(
-                          color: AppTheme.primary.withOpacity(0.3),
+                          color: AppTheme.primary.withAlpha(76),
                           blurRadius: 6,
                           offset: const Offset(0, 2),
                         )
@@ -443,8 +427,7 @@ class _CategoryFilter extends StatelessWidget {
                 _label(cat),
                 style: TextStyle(
                   color: isSelected ? Colors.white : Colors.grey.shade600,
-                  fontWeight:
-                      isSelected ? FontWeight.w600 : FontWeight.normal,
+                  fontWeight: isSelected ? FontWeight.w600 : FontWeight.normal,
                   fontSize: 13,
                 ),
               ),
@@ -461,8 +444,11 @@ class _SectionHeader extends StatelessWidget {
   final int count;
   final Color color;
 
-  const _SectionHeader(
-      {required this.title, required this.count, required this.color});
+  const _SectionHeader({
+    required this.title,
+    required this.count,
+    required this.color,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -489,10 +475,9 @@ class _SectionHeader extends StatelessWidget {
           ),
           const SizedBox(width: 8),
           Container(
-            padding:
-                const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
             decoration: BoxDecoration(
-              color: color.withOpacity(0.12),
+              color: color.withAlpha(30),
               borderRadius: BorderRadius.circular(10),
             ),
             child: Text(

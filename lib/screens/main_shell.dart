@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import '../utils/app_theme.dart';
-import '../providers/todo_provider.dart';
 import 'home_screen.dart';
 import 'calendar_screen.dart';
 import 'routine_screen.dart';
@@ -147,7 +145,7 @@ class _TabletLayout extends StatelessWidget {
               color: Colors.grey.shade500,
               fontSize: 12,
             ),
-            indicatorColor: AppTheme.primary.withOpacity(0.12),
+            indicatorColor: AppTheme.primary.withAlpha(30),
             leading: Padding(
               padding: const EdgeInsets.symmetric(vertical: 16),
               child: Column(

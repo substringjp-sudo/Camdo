@@ -19,6 +19,8 @@ class AuthProvider extends ChangeNotifier {
   String get displayName => _authService.displayName;
   String? get photoUrl => _authService.photoUrl;
 
+  Stream<User?> get authStateChanges => _authService.authStateChanges;
+
   void initialize() {
     _user = _authService.currentUser;
     _authService.authStateChanges.listen((user) {

@@ -27,10 +27,6 @@ class FirebaseService {
   }
 
   Stream<List<TodoModel>> watchTodayTodos() {
-    final now = DateTime.now();
-    final today = DateTime(now.year, now.month, now.day);
-    final tomorrow = today.add(const Duration(days: 1));
-
     return _todosRef
         .where('isCompleted', isEqualTo: false)
         .snapshots()
@@ -44,7 +40,6 @@ class FirebaseService {
 
   Stream<List<TodoModel>> watchTodosForDate(DateTime date) {
     final start = DateTime(date.year, date.month, date.day);
-    final end = start.add(const Duration(days: 1));
 
     return _todosRef.snapshots().map((snap) {
       return snap.docs.map(TodoModel.fromFirestore).where((todo) {

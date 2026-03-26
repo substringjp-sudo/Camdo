@@ -22,7 +22,7 @@ class CalendarProvider extends ChangeNotifier {
 
   List<gcal.Event> eventsForDay(DateTime day) {
     return _googleEvents.where((event) {
-      final start = event.start?.dateTime ?? event.start?.date?.toDateTime();
+      final start = event.start?.dateTime ?? event.start?.date;
       if (start == null) return false;
       final eventDay = DateTime(start.year, start.month, start.day);
       final checkDay = DateTime(day.year, day.month, day.day);
@@ -99,11 +99,5 @@ class CalendarProvider extends ChangeNotifier {
       _isSyncEnabled = true;
       await fetchEvents();
     }
-  }
-}
-
-extension on String {
-  DateTime toDateTime() {
-    return DateTime.parse(this);
   }
 }

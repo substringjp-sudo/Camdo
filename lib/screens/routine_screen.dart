@@ -167,7 +167,7 @@ class _RoutineStatsBanner extends StatelessWidget {
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
-            color: AppTheme.accent.withOpacity(0.3),
+            color: AppTheme.accent.withAlpha(76),
             blurRadius: 12,
             offset: const Offset(0, 4),
           ),
@@ -262,7 +262,7 @@ class _RoutineSectionHeader extends StatelessWidget {
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
             decoration: BoxDecoration(
-              color: color.withOpacity(0.12),
+              color: color.withAlpha(30),
               borderRadius: BorderRadius.circular(10),
             ),
             child: Text(

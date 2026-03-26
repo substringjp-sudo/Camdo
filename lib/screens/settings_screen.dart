@@ -47,7 +47,8 @@ class SettingsScreen extends StatelessWidget {
                           await calProvider.connectGoogleCalendar();
                         }
                       },
-                      activeColor: const Color(0xFF4285F4),
+                      activeTrackColor: const Color(0xFF4285F4).withAlpha(128),
+                      activeThumbColor: const Color(0xFF4285F4),
                     ),
                   ),
                   if (calProvider.isSyncEnabled)
@@ -75,7 +76,8 @@ class SettingsScreen extends StatelessWidget {
                     trailing: Switch(
                       value: true,
                       onChanged: (_) {},
-                      activeColor: AppTheme.secondary,
+                      activeTrackColor: AppTheme.secondary.withAlpha(128),
+                      activeThumbColor: AppTheme.secondary,
                     ),
                   ),
                   _SettingsTile(
@@ -85,7 +87,8 @@ class SettingsScreen extends StatelessWidget {
                     trailing: Switch(
                       value: true,
                       onChanged: (_) {},
-                      activeColor: AppTheme.secondary,
+                      activeTrackColor: AppTheme.secondary.withAlpha(128),
+                      activeThumbColor: AppTheme.secondary,
                     ),
                   ),
                 ],
@@ -198,7 +201,7 @@ class _ProfileCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
-            color: AppTheme.primary.withOpacity(0.3),
+            color: AppTheme.primary.withAlpha(76),
             blurRadius: 12,
             offset: const Offset(0, 4),
           ),
@@ -289,7 +292,7 @@ class _SettingsSection extends StatelessWidget {
             borderRadius: BorderRadius.circular(16),
             boxShadow: [
               BoxShadow(
-                color: Colors.black.withOpacity(0.04),
+                color: Colors.black.withAlpha(10),
                 blurRadius: 8,
                 offset: const Offset(0, 2),
               ),
@@ -329,7 +332,7 @@ class _SettingsTile extends StatelessWidget {
         width: 40,
         height: 40,
         decoration: BoxDecoration(
-          color: (iconColor ?? AppTheme.primary).withOpacity(0.1),
+          color: (iconColor ?? AppTheme.primary).withAlpha(25),
           borderRadius: BorderRadius.circular(10),
         ),
         child: Icon(

@@ -106,7 +106,7 @@ class _CalendarScreenState extends State<CalendarScreen> {
                       shape: BoxShape.circle,
                     ),
                     todayDecoration: BoxDecoration(
-                      color: AppTheme.primary.withOpacity(0.25),
+                      color: AppTheme.primary.withAlpha(64),
                       shape: BoxShape.circle,
                     ),
                     todayTextStyle:
@@ -295,10 +295,10 @@ class _GoogleEventTile extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
         decoration: BoxDecoration(
-          color: const Color(0xFF4285F4).withOpacity(0.07),
+          color: const Color(0xFF4285F4).withAlpha(18),
           borderRadius: BorderRadius.circular(12),
           border: Border.all(
-              color: const Color(0xFF4285F4).withOpacity(0.2)),
+              color: const Color(0xFF4285F4).withAlpha(51)),
         ),
         child: Row(
           children: [
@@ -327,8 +327,8 @@ class _GoogleEventTile extends StatelessWidget {
                   ],
                 ],
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

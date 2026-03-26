@@ -23,7 +23,7 @@ android {
     defaultConfig {
         applicationId "com.camdo.todo"
         // Min SDK 21 for Firebase & notifications
-        minSdkVersion 21
+        minSdkVersion flutter.minSdkVersion
         targetSdkVersion flutter.targetSdkVersion
         versionCode flutter.versionCode
         versionName flutter.versionName

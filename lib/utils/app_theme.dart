@@ -6,8 +6,8 @@ class AppTheme {
   static const Color primaryDark = Color(0xFF4A44CC);
   static const Color secondary = Color(0xFFFF6584);
   static const Color accent = Color(0xFF43C6AC);
-  static const Color background = Color(0xFFF8F9FF);
-  static const Color surface = Colors.white;
+  static const Color surface = Color(0xFFF8F9FF);
+  static const Color background = Colors.white;
   static const Color error = Color(0xFFFF5252);
   static const Color warning = Color(0xFFFFAB40);
   static const Color success = Color(0xFF4CAF50);
@@ -25,7 +25,7 @@ class AppTheme {
         primary: primary,
         secondary: secondary,
         surface: surface,
-        background: background,
+        background: surface,
         error: error,
       ),
       scaffoldBackgroundColor: background,
@@ -41,9 +41,9 @@ class AppTheme {
           letterSpacing: 0.5,
         ),
       ),
-      cardTheme: CardTheme(
+      cardTheme: CardThemeData(
         elevation: 2,
-        shadowColor: primary.withOpacity(0.15),
+        shadowColor: primary.withAlpha(38),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(16),
         ),
@@ -94,7 +94,7 @@ class AppTheme {
             const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
       ),
       chipTheme: ChipThemeData(
-        backgroundColor: primary.withOpacity(0.1),
+        backgroundColor: primary.withAlpha(25),
         selectedColor: primary,
         labelStyle: const TextStyle(fontSize: 13),
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
@@ -104,7 +104,7 @@ class AppTheme {
       ),
       navigationBarTheme: NavigationBarThemeData(
         backgroundColor: Colors.white,
-        indicatorColor: primary.withOpacity(0.15),
+        indicatorColor: primary.withAlpha(38),
         labelTextStyle: MaterialStateProperty.resolveWith((states) {
           if (states.contains(MaterialState.selected)) {
             return const TextStyle(

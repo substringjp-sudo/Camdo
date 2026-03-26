@@ -291,7 +291,7 @@ class _AddTodoSheetState extends State<AddTodoSheet> {
                                   decoration: BoxDecoration(
                                     color: isSelected
                                         ? color
-                                        : color.withOpacity(0.1),
+                                        : color.withAlpha(25),
                                     borderRadius: BorderRadius.circular(10),
                                     border: Border.all(
                                       color: color,
@@ -453,11 +453,11 @@ class _DateTimeTile extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
         decoration: BoxDecoration(
           color: isSet
-              ? AppTheme.primary.withOpacity(0.08)
+              ? AppTheme.primary.withAlpha(20)
               : Colors.grey.shade100,
           borderRadius: BorderRadius.circular(12),
           border: Border.all(
-            color: isSet ? AppTheme.primary.withOpacity(0.4) : Colors.grey.shade300,
+            color: isSet ? AppTheme.primary.withAlpha(102) : Colors.grey.shade300,
           ),
         ),
         child: Row(
@@ -483,7 +483,7 @@ class _DateTimeTile extends StatelessWidget {
                 onTap: onClear,
                 child: Icon(Icons.close,
                     size: 16,
-                    color: AppTheme.primary.withOpacity(0.7)),
+                    color: AppTheme.primary.withAlpha(178)),
               ),
           ],
         ),
@@ -514,10 +514,10 @@ class _SwitchTile extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
       decoration: BoxDecoration(
-        color: value ? activeColor.withOpacity(0.06) : Colors.grey.shade50,
+        color: value ? activeColor.withAlpha(15) : Colors.grey.shade50,
         borderRadius: BorderRadius.circular(12),
         border: Border.all(
-          color: value ? activeColor.withOpacity(0.3) : Colors.grey.shade200,
+          color: value ? activeColor.withAlpha(76) : Colors.grey.shade200,
         ),
       ),
       child: Row(
@@ -549,7 +549,8 @@ class _SwitchTile extends StatelessWidget {
           Switch(
             value: value,
             onChanged: onChanged,
-            activeColor: activeColor,
+            activeTrackColor: activeColor.withAlpha(128),
+            activeThumbColor: activeColor,
           ),
         ],
       ),

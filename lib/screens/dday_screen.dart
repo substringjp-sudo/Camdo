@@ -133,7 +133,7 @@ class _DDayCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(20),
           boxShadow: [
             BoxShadow(
-              color: _cardColor.withOpacity(0.25),
+              color: _cardColor.withAlpha(64),
               blurRadius: 12,
               offset: const Offset(0, 4),
             ),
@@ -147,7 +147,7 @@ class _DDayCard extends StatelessWidget {
               Container(
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
-                    colors: [_cardColor, _cardColor.withOpacity(0.8)],
+                    colors: [_cardColor, _cardColor.withAlpha(204)],
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight,
                   ),
@@ -163,7 +163,7 @@ class _DDayCard extends StatelessWidget {
                   height: 120,
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
-                    color: Colors.white.withOpacity(0.1),
+                    color: Colors.white.withAlpha(25),
                   ),
                 ),
               ),
@@ -179,10 +179,10 @@ class _DDayCard extends StatelessWidget {
                       padding: const EdgeInsets.symmetric(
                           horizontal: 16, vertical: 12),
                       decoration: BoxDecoration(
-                        color: Colors.white.withOpacity(0.2),
+                        color: Colors.white.withAlpha(51),
                         borderRadius: BorderRadius.circular(16),
                         border: Border.all(
-                            color: Colors.white.withOpacity(0.3), width: 1),
+                            color: Colors.white.withAlpha(76), width: 1),
                       ),
                       child: Column(
                         children: [
@@ -239,7 +239,7 @@ class _DDayCard extends StatelessWidget {
                               padding: const EdgeInsets.symmetric(
                                   horizontal: 10, vertical: 3),
                               decoration: BoxDecoration(
-                                color: Colors.white.withOpacity(0.2),
+                                color: Colors.white.withAlpha(51),
                                 borderRadius: BorderRadius.circular(12),
                               ),
                               child: Text(

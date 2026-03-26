@@ -107,15 +107,11 @@ class GoogleCalendarService {
         description: todo.description,
         start: gcal.EventDateTime(
           dateTime: todo.dueTime != null ? startDate.toUtc() : null,
-          date: todo.dueTime == null
-              ? '${todo.dueDate!.year}-${todo.dueDate!.month.toString().padLeft(2, '0')}-${todo.dueDate!.day.toString().padLeft(2, '0')}'
-              : null,
+          date: todo.dueTime == null ? DateTime(todo.dueDate!.year, todo.dueDate!.month, todo.dueDate!.day) : null,
         ),
         end: gcal.EventDateTime(
           dateTime: todo.dueTime != null ? endDate.toUtc() : null,
-          date: todo.dueTime == null
-              ? '${endDate.year}-${endDate.month.toString().padLeft(2, '0')}-${endDate.day.toString().padLeft(2, '0')}'
-              : null,
+          date: todo.dueTime == null ? DateTime(endDate.year, endDate.month, endDate.day) : null,
         ),
         reminders: gcal.EventReminders(
           useDefault: false,
