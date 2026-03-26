@@ -45,6 +45,8 @@ class TodoModel {
     this.completedAt,
   });
 
+  static const Object _unset = Object();
+
   TodoModel copyWith({
     String? id,
     String? title,
@@ -63,7 +65,7 @@ class TodoModel {
     DateTime? updatedAt,
     String? userId,
     bool? isRoutine,
-    DateTime? completedAt,
+    Object? completedAt = _unset,
   }) {
     return TodoModel(
       id: id ?? this.id,
@@ -84,7 +86,9 @@ class TodoModel {
       updatedAt: updatedAt ?? this.updatedAt,
       userId: userId ?? this.userId,
       isRoutine: isRoutine ?? this.isRoutine,
-      completedAt: completedAt ?? this.completedAt,
+      completedAt: identical(completedAt, _unset)
+          ? this.completedAt
+          : completedAt as DateTime?,
     );
   }
 

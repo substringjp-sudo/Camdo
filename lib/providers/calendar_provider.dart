@@ -21,11 +21,15 @@ class CalendarProvider extends ChangeNotifier {
   String? get error => _error;
 
   List<gcal.Event> eventsForDay(DateTime day) {
+    final checkDay = DateTime(day.year, day.month, day.day);
     return _googleEvents.where((event) {
-      final start = event.start?.dateTime ?? event.start?.date;
+      final startDt = event.start?.dateTime?.toLocal();
+      final startDate = event.start?.date != null
+          ? DateTime.tryParse(event.start!.date!)
+          : null;
+      final start = startDt ?? startDate;
       if (start == null) return false;
       final eventDay = DateTime(start.year, start.month, start.day);
-      final checkDay = DateTime(day.year, day.month, day.day);
       return eventDay == checkDay;
     }).toList();
   }

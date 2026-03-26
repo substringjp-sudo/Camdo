@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:googleapis/calendar/v3.dart' as gcal;
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:table_calendar/table_calendar.dart';
@@ -70,7 +71,7 @@ class _CalendarScreenState extends State<CalendarScreen> {
               // Calendar
               Container(
                 color: Colors.white,
-                child: TableCalendar<dynamic>(
+                child: TableCalendar<Object>(
                   firstDay: DateTime(2020),
                   lastDay: DateTime(2100),
                   focusedDay: calProvider.focusedDay,
@@ -274,19 +275,21 @@ class _EventSectionHeader extends StatelessWidget {
 }
 
 class _GoogleEventTile extends StatelessWidget {
-  final dynamic event;
+  final gcal.Event event;
 
   const _GoogleEventTile({required this.event});
 
   @override
   Widget build(BuildContext context) {
     final title = event.summary ?? '(제목 없음)';
-    final start = event.start?.dateTime ?? event.start?.date;
+    final startDateTime = event.start?.dateTime;
+    final startDate = event.start?.date;
     String timeStr = '';
-    if (start != null) {
+    if (startDateTime != null) {
+      timeStr = DateFormat('HH:mm').format(startDateTime.toLocal());
+    } else if (startDate != null) {
       try {
-        final dt = start is String ? DateTime.parse(start) : start as DateTime;
-        timeStr = DateFormat('HH:mm').format(dt);
+        timeStr = DateFormat('HH:mm').format(DateTime.parse(startDate));
       } catch (_) {}
     }
 
