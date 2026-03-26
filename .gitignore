@@ -42,9 +42,8 @@ app.*.map.json
 /android/app/profile
 /android/app/release
 
-# Firebase - NEVER commit real credentials
+# Firebase - NEVER commit real credentials with actual keys
 android/app/google-services.json
-lib/firebase_options.dart
 
-# Keep the template
+# Keep the template and placeholder options
 !android/app/google-services.json.template
