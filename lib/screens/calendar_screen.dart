@@ -282,16 +282,10 @@ class _GoogleEventTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final title = event.summary ?? '(제목 없음)';
-    final startDateTime = event.start?.dateTime;
-    final startDate = event.start?.date;
-    String timeStr = '';
-    if (startDateTime != null) {
-      timeStr = DateFormat('HH:mm').format(startDateTime.toLocal());
-    } else if (startDate != null) {
-      try {
-        timeStr = DateFormat('HH:mm').format(DateTime.parse(startDate));
-      } catch (_) {}
-    }
+    final startDt =
+        event.start?.dateTime?.toLocal() ?? event.start?.date?.toLocal();
+    final timeStr =
+        startDt != null ? DateFormat('HH:mm').format(startDt) : '';
 
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
@@ -300,8 +294,7 @@ class _GoogleEventTile extends StatelessWidget {
         decoration: BoxDecoration(
           color: const Color(0xFF4285F4).withAlpha(18),
           borderRadius: BorderRadius.circular(12),
-          border: Border.all(
-              color: const Color(0xFF4285F4).withAlpha(51)),
+          border: Border.all(color: const Color(0xFF4285F4).withAlpha(51)),
         ),
         child: Row(
           children: [
@@ -330,8 +323,8 @@ class _GoogleEventTile extends StatelessWidget {
                   ],
                 ],
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

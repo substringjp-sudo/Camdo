@@ -23,11 +23,8 @@ class CalendarProvider extends ChangeNotifier {
   List<gcal.Event> eventsForDay(DateTime day) {
     final checkDay = DateTime(day.year, day.month, day.day);
     return _googleEvents.where((event) {
-      final startDt = event.start?.dateTime?.toLocal();
-      final startDate = event.start?.date != null
-          ? DateTime.tryParse(event.start!.date!)
-          : null;
-      final start = startDt ?? startDate;
+      final start =
+          event.start?.dateTime?.toLocal() ?? event.start?.date?.toLocal();
       if (start == null) return false;
       final eventDay = DateTime(start.year, start.month, start.day);
       return eventDay == checkDay;
