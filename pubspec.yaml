@@ -1,0 +1,52 @@
+name: camdo
+description: Camdo - Smart Todo App with Google Calendar, Routines, D-Day & Firebase
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.6
+
+  # Firebase
+  firebase_core: ^3.3.0
+  firebase_auth: ^5.1.4
+  cloud_firestore: ^5.2.1
+  firebase_messaging: ^15.0.4
+
+  # Google Sign-In & Calendar
+  google_sign_in: ^6.2.1
+  googleapis: ^13.2.0
+  http: ^1.2.2
+  extension_google_sign_in_as_googleapis_auth: ^2.0.12
+
+  # Local Notifications
+  flutter_local_notifications: ^17.2.2
+  timezone: ^0.9.4
+  flutter_timezone: ^2.0.0
+
+  # State Management
+  provider: ^6.1.2
+
+  # Calendar UI
+  table_calendar: ^3.1.2
+
+  # Utilities
+  intl: ^0.19.0
+  uuid: ^4.4.2
+  shared_preferences: ^2.3.1
+  flutter_slidable: ^3.1.1
+  lottie: ^3.1.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/icons/

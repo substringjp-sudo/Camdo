@@ -1,0 +1,42 @@
+{
+  "_comment": "REPLACE THIS FILE with your actual google-services.json from Firebase Console",
+  "_instructions": [
+    "1. Go to https://console.firebase.google.com/",
+    "2. Select project: camdo-todo",
+    "3. Click the Android icon to add an Android app",
+    "4. Package name: com.camdo.todo",
+    "5. Download google-services.json",
+    "6. Place it in android/app/google-services.json (same folder as this file)",
+    "7. Also update lib/firebase_options.dart with your actual API keys"
+  ],
+  "project_info": {
+    "project_id": "camdo-todo",
+    "project_number": "YOUR_PROJECT_NUMBER",
+    "storage_bucket": "camdo-todo.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "YOUR_ANDROID_APP_ID",
+        "android_client_info": {
+          "package_name": "com.camdo.todo"
+        }
+      },
+      "api_key": [
+        {
+          "current_key": "YOUR_ANDROID_API_KEY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "YOUR_WEB_CLIENT_ID.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
